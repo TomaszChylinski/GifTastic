@@ -1,4 +1,4 @@
-var topics = ['apples','piers','oranges','world cup'];
+var topics = ['soccer','football','basketball','tennis'];
 
 
 for(i=0;i < topics.length;i++){
@@ -36,8 +36,15 @@ $("button").on("click", function(){
 
     //Get response --- then is a promise that is used to set data once its completed 
     .then(function(response){
-        console.log('testing my api call ' + queryURL);
+        console.log('my query url ' + queryURL);
 
+        console.log('testing my api call ' , response);
+
+        //need to define the results
+        var results = response.data;
+
+        console.log('get results  ' , results[0])
+        console.log('get first rating ' , results[0].rating)
         //note to self remember to add ---   &api_key=
 
 
@@ -46,7 +53,7 @@ $("button").on("click", function(){
                 1. add 10 images for each topic
                 2. add rating under each image
                 3. if clicked the image should animate 
-
+             */
 
     })
 
