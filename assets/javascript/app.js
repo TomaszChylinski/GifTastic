@@ -43,11 +43,34 @@ $("button").on("click", function(){
         //need to define the results
         var results = response.data;
 
-        console.log('get results  ' , results[0])
+        console.log('get results  ' , results)
         console.log('get first rating ' , results[0].rating)
         //note to self remember to add ---   &api_key=
 
 
+
+        for(i=0; i < results.length; i++){
+
+            var divHolder = $('<div>');
+
+
+            //create img holder for each gif
+            var gifyImgHolder = $('<img>');
+            gifyImgHolder.attr("src", results[i].images.fixed_height.url);
+
+            
+
+
+
+            var gifyRating = $('<p>').text('Rating: ' + results[i].rating.toUpperCase())
+
+            //attach both image and rating to my new div 
+            divHolder.append(gifyImgHolder);
+            divHolder.append(gifyRating)
+
+            //prepend/display my new div to an already existing html div 
+            $("#main-section").append(divHolder);
+        }
         // NEXT STEPS 
             /*
                 1. add 10 images for each topic
