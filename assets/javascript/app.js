@@ -7,13 +7,13 @@ for(i=0;i < topics.length;i++){
 
  // i will add a class to this button to make it style 
 
-    // topicBtn.addClass('primiary-button');
+ //   topicBtn.addClass('primiary-button');
 
 //i can also add an attribute 
     //topicBtn.attr("main-cat",topics[i])
 
 //finally add to the html page by appending to a div 
-   // $("#main-section").append(topicBtn)
+   $("#main-section").append(topicBtn)
 
 }
 
