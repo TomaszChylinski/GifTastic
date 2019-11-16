@@ -40,6 +40,14 @@ $("button").on("click", function(){
 
         //note to self remember to add ---   &api_key=
 
+
+        // NEXT STEPS 
+            /*
+                1. add 10 images for each topic
+                2. add rating under each image
+                3. if clicked the image should animate 
+
+
     })
 
 })
