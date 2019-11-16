@@ -3,7 +3,8 @@ var topics = ['arsenal', 'robert lewnadowski','champions league','world cup'];
 
 for(i=0;i < topics.length;i++){
 
- var topicBtn = "<button>"
+ var topicBtn = "<button>" + topics[i] + "</button>"
+
 
  // i will add a class to this button to make it style 
 
