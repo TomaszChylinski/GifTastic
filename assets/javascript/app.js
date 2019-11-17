@@ -6,20 +6,19 @@ for(i=0;i < topics.length;i++){
      var topicBtn = $("<button>");
 
 
-    // i will add a class to this button to make it style 
+    // adding two classes to my buttons
     topicBtn.addClass("btn btn-info");
 
-    //i can also add an attribute 
+    // adding an attribute to the button
     topicBtn.attr("image-data", topicBtn[i]);
 
-    //add text to button
+    //add text to button 
     topicBtn.text(topics[i].toUpperCase());
    
-    //finally add to the html page by appending to a div 
+    //finally add to the html page by appending to an id 
    $("#nav-item").append(topicBtn)
 
 }
-
 
 $("button").on("click", function(){
 
@@ -33,7 +32,6 @@ $("button").on("click", function(){
     $.ajax({
         url: queryURL,
         method: "GET"
-
     })
 
     //Get response --- then is a promise that is used to set data once its completed 
@@ -49,22 +47,21 @@ $("button").on("click", function(){
         console.log('get first rating ' , results[0].rating)
         //note to self remember to add ---   &api_key=
 
-
-
         for(i=0; i < results.length; i++){
 
             var divHolder = $('<div>');
 
+            divHolder.addClass("inline");
 
             //create img holder for each gif
             var gifyImgHolder = $('<img>');
-            gifyImgHolder.attr("src", results[i].images.fixed_height.url);
+            gifyImgHolder.attr("src", results[i].images.fixed_height_still.url);
 
             var gifyRating = $('<p>').text('Rating: ' + results[i].rating.toUpperCase())
 
             //attach both image and rating to my new div 
             divHolder.append(gifyImgHolder);
-            divHolder.append(gifyRating)
+            divHolder.prepend(gifyRating)
 
             //prepend/display my new div to an already existing html div 
             $("#main-section").append(divHolder);
