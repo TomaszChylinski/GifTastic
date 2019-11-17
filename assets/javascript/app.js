@@ -44,7 +44,9 @@ $("#add-topic").on("click", function(event) {
 
 
 function populateTopics(){
+
 $("button").on("click", function() {
+  $("#main-section").empty();
   //capture value of my selected button
   var topicCat = $(this)
     .text()
