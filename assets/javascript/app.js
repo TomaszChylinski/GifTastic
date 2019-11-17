@@ -3,18 +3,20 @@ var topics = ['soccer','football','basketball','tennis'];
 
 for(i=0;i < topics.length;i++){
 
- var topicBtn = "<button>" + topics[i] + "</button>"
+     var topicBtn = $("<button>");
 
 
     // i will add a class to this button to make it style 
-
-    //topicBtn.addClass("btn btn-primary");
+    topicBtn.addClass("btn btn-info");
 
     //i can also add an attribute 
-        //topicBtn.attr("button",topics[i])
+    topicBtn.attr("image-data", topicBtn[i]);
 
+    //add text to button
+    topicBtn.text(topics[i].toUpperCase());
+   
     //finally add to the html page by appending to a div 
-   $("#main-section").append(topicBtn)
+   $("#nav-item").append(topicBtn)
 
 }
 
@@ -57,10 +59,6 @@ $("button").on("click", function(){
             //create img holder for each gif
             var gifyImgHolder = $('<img>');
             gifyImgHolder.attr("src", results[i].images.fixed_height.url);
-
-            
-
-
 
             var gifyRating = $('<p>').text('Rating: ' + results[i].rating.toUpperCase())
 
