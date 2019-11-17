@@ -16,8 +16,7 @@ function createNav() {
     // adding two classes to my buttons
     topicBtn.addClass("btn btn-info");
 
-    // adding an attribute to the button
-    topicBtn.attr("image-data", topicBtn[i]);
+   
 
     //add text to button
     topicBtn.text(topics[i].toUpperCase());
@@ -46,7 +45,12 @@ $("#add-topic").on("click", function(event) {
 function populateTopics(){
 
 $("button").on("click", function() {
-  $("#main-section").empty();
+
+//if i wanted to over write the previous 10 gifs 
+  // $("#main-section").empty();
+
+
+
   //capture value of my selected button
   var topicCat = $(this)
     .text()
@@ -73,6 +77,8 @@ $("button").on("click", function() {
       //need to define the results
       var results = response.data;
 
+      
+
       console.log("get results  ", results);
       console.log("get first rating ", results[0].rating);
       //note to self remember to add ---   &api_key=
@@ -85,6 +91,10 @@ $("button").on("click", function() {
         //create img holder for each gif
         var gifyImgHolder = $("<img>");
         gifyImgHolder.attr("src", results[i].images.fixed_height_still.url);
+         // adding an attribute to the button
+        gifyImgHolder.attr("class", "gif");
+        gifyImgHolder.attr("data-state", "still");
+       
 
         var gifyRating = $("<p>").text(
           "Rating: " + results[i].rating.toUpperCase()
@@ -101,3 +111,11 @@ $("button").on("click", function() {
 });
 }
 
+/*
+$("img.gif").on("click", function() {
+
+  var state = $(this).attr("data-state");
+  console.log('stage ' + state)
+});
+
+*/
