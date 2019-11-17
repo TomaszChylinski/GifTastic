@@ -1,21 +1,14 @@
+//intial arrary of topics
+
 var topics = ["soccer", "football", "basketball", "tennis"];
 
-createNav()
+createNav();
+
+
 
 
 function createNav() {
-
-    $("#add-topic").on("click", function() {
-        var addTopic = $("#topic-input")
-          .val()
-          .trim()
-          .toLowerCase();
-    
-        topics.push(addTopic);
-        createNav();
-        console.log("new arrary " + topics);
-      });
-
+  $("#nav-item").empty();
 
   for (i = 0; i < topics.length; i++) {
     var topicBtn = $("<button>");
@@ -32,8 +25,25 @@ function createNav() {
     //finally add to the html page by appending to an id
     $("#nav-item").append(topicBtn);
   }
+  populateTopics()
 }
 
+$("#add-topic").on("click", function(event) {
+  event.preventDefault();
+
+  var newTopic = $("#topic-input")
+    .val()
+    .trim()
+    .toLowerCase();
+
+  topics.push(newTopic);
+  createNav();
+  console.log("new arrary " + topics);
+  createNav();
+});
+
+
+function populateTopics(){
 $("button").on("click", function() {
   //capture value of my selected button
   var topicCat = $(this)
@@ -87,17 +97,5 @@ $("button").on("click", function() {
       }
     });
 });
-
-/*function addNewTopic() {
-  $("#add-topic").on("click", function() {
-    var addTopic = $("#topic-input")
-      .val()
-      .trim()
-      .toLowerCase();
-
-    topics.push(addTopic);
-    createNav();
-    console.log("new arrary " + topics);
-  });
 }
-*/
+
