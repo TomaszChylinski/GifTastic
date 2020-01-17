@@ -90,10 +90,14 @@ $("button").on("click", function() {
 
         //create img holder for each gif
         var gifyImgHolder = $("<img>");
+
+
+
         gifyImgHolder.attr("src", results[i].images.fixed_height_still.url);
-         // adding an attribute to the button
-        gifyImgHolder.attr("class", "gif");
-        gifyImgHolder.attr("data-state", "still");
+        gifyImgHolder.attr("data-still", results[i].images.fixed_height_still.url)
+        gifyImgHolder.attr("data-animate", results[i].images.fixed_height.url)
+        gifyImgHolder.attr("data-state", "animate")
+	 			gifyImgHolder.addClass("gif");
        
 
         var gifyRating = $("<p>").text(
@@ -111,6 +115,23 @@ $("button").on("click", function() {
 });
 }
 
+$("#main-section").on("click", ".gif", function(event){
+	event.preventDefault();
+	
+	// checks the current state of a clicked gif
+  var state = $(this).attr("data-state");
+  console.log("Helllo")
+	
+	//conditional that listens to the state and changes it
+	if (state === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  } else {
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+  }
+
+})
 /*
 $("img.gif").on("click", function() {
 
