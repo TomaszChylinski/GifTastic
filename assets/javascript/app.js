@@ -70,18 +70,9 @@ $("button").on("click", function() {
 
     //Get response --- then is a promise that is used to set data once its completed
     .then(function(response) {
-      console.log("my query url " + queryURL);
-
-      console.log("testing my api call ", response);
 
       //need to define the results
       var results = response.data;
-
-      
-
-      console.log("get results  ", results);
-      console.log("get first rating ", results[0].rating);
-      //note to self remember to add ---   &api_key=
 
       for (i = 0; i < results.length; i++) {
         var divHolder = $("<div>");
@@ -90,8 +81,6 @@ $("button").on("click", function() {
 
         //create img holder for each gif
         var gifyImgHolder = $("<img>");
-
-
 
         gifyImgHolder.attr("src", results[i].images.fixed_height_still.url);
         gifyImgHolder.attr("data-still", results[i].images.fixed_height_still.url)
@@ -105,11 +94,11 @@ $("button").on("click", function() {
         );
 
         //attach both image and rating to my new div
-        divHolder.append(gifyImgHolder);
+        divHolder.prepend(gifyImgHolder);
         divHolder.prepend(gifyRating);
 
         //prepend/display my new div to an already existing html div
-        $("#main-section").append(divHolder);
+        $("#main-section").prepend(divHolder);
       }
     });
 });
